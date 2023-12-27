@@ -2,8 +2,12 @@ const dotenv = require('dotenv')
 dotenv.config()
 const express = require('express');
 const app = express();
-const db = require('./db.config')
+const db = require('./db.config');
+const { removeAllListeners } = require('nodemon');
 const PORT = process.env.PORT || 5000;
+
+//controller import
+const userRouter = require('./controller/user.controller')
 
 
 app.use(express.json());  //middleware
@@ -16,15 +20,25 @@ app.get('/',(req,res) => {
     res.json({
         status: 200,
         message:"your server is up and running",
-        uri: uri
+        
     })
 })
 
-app.get('/home',(req,res) => {
-    res.json("this is a home router..")
-})
+app.use('/api/v1/users',userRouter)
 
 
 app.listen(PORT,()=>{
     console.log(`listening on port number -> ${PORT}`);
 })
+
+
+// users
+
+// create user
+// findall
+// PaymentRequestUpdateEventdelete
+// findone
+// delete removeAllListenersfind active users
+
+
+
