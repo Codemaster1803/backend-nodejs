@@ -1,6 +1,9 @@
 var http = require('http');
 var data = require("./test");
-var url = require('url')
+var url = require('url');
+// require('dotenv').config(); OR
+const dotenv = require('dotenv');
+dotenv.config();
 
 http.createServer(function(req,res){
     res.writeHead(200,{'Content-Type':'text/html'})
@@ -11,4 +14,5 @@ http.createServer(function(req,res){
     var query = url.parse(req.url,true).query;
     console.log(query)
     res.end('<h3>Welcome to rait...</h3>')
-}).listen(4848);
+    console.log(process.env.PORT)
+}).listen(process.env.PORT  || 5010);
