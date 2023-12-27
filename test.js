@@ -1,2 +1,7 @@
-console.log("Pranav mali internships")
-console.log("2023")
+// exports.testModule = function() {
+//     return "this is a test module"
+// }
+
+exports.testModule = () => {
+    return Date();
+}
