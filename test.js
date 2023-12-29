@@ -1,7 +1,7 @@
-// exports.testModule = function() {
-//     return "this is a test module"
+// exports.testModule = function () {
+//     return "this is a test module";
 // }
 
-exports.testModule = () => {
-    return Date();
+exports.testModule = () =>{
+    return "this is a test module";
 }
